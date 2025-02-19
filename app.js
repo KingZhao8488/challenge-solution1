@@ -5,8 +5,7 @@ function agregarAmigo() {
     let input = document.getElementById("amigo");
     let nombre = input.value.trim();
 
-    if (nombre === "") {
-        alert("Por favor, ingresa un nombre válido.");
+    if (!validarEntrada(nombre)) {
         return;
     }
 
@@ -20,6 +19,20 @@ function agregarAmigo() {
     input.value = "";
 }
 
+function validarEntrada(nombre) {
+    if (nombre === "") {
+        alert("Por favor, ingresa un nombre válido.");
+        return false;
+    }
+
+    if (amigos.includes(nombre)) {
+        alert("Ese nombre ya está en la lista.");
+        return false;
+    }
+
+    return true;
+}
+
 function actualizarLista() {
     let lista = document.getElementById("listaAmigos");
     lista.innerHTML = "";
@@ -30,3 +43,4 @@ function actualizarLista() {
         lista.appendChild(li);
     });
 }
+
