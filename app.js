@@ -13,7 +13,7 @@ function agregarAmigo() {
     amigos.push(nombre);
 
     // Update the displayed list
-    actualizarLista();
+    mostrarLista();
 
     // Clear the input field
     input.value = "";
@@ -33,14 +33,31 @@ function validarEntrada(nombre) {
     return true;
 }
 
-function actualizarLista() {
+function mostrarLista() {
     let lista = document.getElementById("listaAmigos");
     lista.innerHTML = "";
 
-    amigos.forEach((amigo) => {
+    if (amigos.length === 0) {
+        lista.innerHTML = "<li>No hay nombres en la lista.</li>";
+        return;
+    }
+
+    amigos.forEach((amigo, index) => {
         let li = document.createElement("li");
         li.textContent = amigo;
+        
+        // Button to remove a name
+        let removeButton = document.createElement("button");
+        removeButton.textContent = "❌";
+        removeButton.classList.add("remove-button");
+        removeButton.onclick = () => eliminarAmigo(index);
+
+        li.appendChild(removeButton);
         lista.appendChild(li);
     });
 }
 
+function eliminarAmigo(index) {
+    amigos.splice(index, 1);
+    mostrarLista();
+}
