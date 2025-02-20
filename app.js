@@ -61,3 +61,17 @@ function eliminarAmigo(index) {
     amigos.splice(index, 1);
     mostrarLista();
 }
+
+function sortearAmigo() {
+    let resultado = document.getElementById("resultado");
+
+    if (amigos.length === 0) {
+        resultado.innerHTML = "<li>Agrega al menos un amigo antes de sortear.</li>";
+        return;
+    }
+
+    let indiceAleatorio = Math.floor(Math.random() * amigos.length);
+    let amigoSorteado = amigos[indiceAleatorio];
+
+    resultado.innerHTML = `<li>🎉 ¡El amigo secreto es: <strong>${amigoSorteado}</strong>! 🎉</li>`;
+}
