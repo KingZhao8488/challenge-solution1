@@ -49,7 +49,7 @@ Amigo Secreto es una aplicación web en JavaScript que permite a los usuarios in
 
 
 🔥 Demo
-🔗 Vista previa en vivo: [Próximamente]
+🔗 Vista previa en vivo: [Click Aquí](https://kingzhao8488.github.io/challenge-solution1/)
 
 ## 🛠️ Mejoras Futuras
 🔄 -- Opción para reiniciar el juego.
